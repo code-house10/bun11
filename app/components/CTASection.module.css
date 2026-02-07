@@ -1,0 +1,239 @@
+.cta {
+    padding: 120px 0;
+    background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.8) 100%);
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.content {
+    color: #fff;
+}
+
+.sectionLabel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #f26922;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.labelLine {
+    width: 40px;
+    height: 3px;
+    background: #f26922;
+    border-radius: 3px;
+}
+
+.title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.phoneBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #fff;
+    color: #1a1a1a;
+    padding: 16px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+}
+
+.phoneBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.phoneBtn svg {
+    color: #f26922;
+}
+
+.quoteBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #f26922, #ff8c42);
+    color: #fff;
+    padding: 16px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(242, 105, 34, 0.4);
+}
+
+.quoteBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(242, 105, 34, 0.5);
+}
+
+.quoteBtn svg {
+    transition: transform 0.3s;
+}
+
+.quoteBtn:hover svg {
+    transform: translateX(-5px);
+}
+
+/* Contact Form */
+.contactForm {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.contactForm h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.contactForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.contactForm input,
+.contactForm select,
+.contactForm textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e8e8e8;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.contactForm input:focus,
+.contactForm select:focus,
+.contactForm textarea:focus {
+    outline: none;
+    border-color: #f26922;
+    box-shadow: 0 0 0 4px rgba(242, 105, 34, 0.1);
+}
+
+.contactForm textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submitBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #f26922, #ff8c42);
+    color: #fff;
+    padding: 18px 36px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(242, 105, 34, 0.3);
+    font-family: inherit;
+    margin-top: 0.5rem;
+}
+
+.submitBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(242, 105, 34, 0.4);
+}
+
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .content {
+        text-align: center;
+    }
+
+    .sectionLabel {
+        justify-content: center;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta {
+        padding: 80px 0;
+    }
+
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .phoneBtn,
+    .quoteBtn {
+        justify-content: center;
+    }
+
+    .contactForm {
+        padding: 30px 25px;
+    }
+}

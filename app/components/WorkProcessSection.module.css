@@ -1,0 +1,208 @@
+.workProcess {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.workProcess::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f26922' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.sectionHeader {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 80px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.workProcess.visible .sectionHeader {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    color: #f26922;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.labelLine {
+    width: 40px;
+    height: 3px;
+    background: #f26922;
+    border-radius: 3px;
+}
+
+.sectionTitle {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.sectionDesc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+}
+
+.stepsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    position: relative;
+}
+
+.stepCard {
+    text-align: center;
+    padding: 40px 30px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+.workProcess.visible .stepCard {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeUp 0.6s ease forwards;
+}
+
+.stepNumber {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(242, 105, 34, 0.1);
+    line-height: 1;
+}
+
+.stepIcon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #f26922, #ff8c42);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: #fff;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(242, 105, 34, 0.4);
+}
+
+.stepIcon::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 2px dashed rgba(242, 105, 34, 0.3);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+
+.stepTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.stepDesc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9375rem;
+    line-height: 1.8;
+}
+
+.connector {
+    position: absolute;
+    top: 80px;
+    left: -30px;
+    transform: scaleX(-1);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 1024px) {
+    .stepsGrid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .connector {
+        display: none;
+    }
+
+    .stepCard {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .workProcess {
+        padding: 80px 0;
+    }
+
+    .sectionHeader {
+        margin-bottom: 60px;
+    }
+
+    .stepIcon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .stepIcon::before {
+        width: 100px;
+        height: 100px;
+    }
+
+    .stepNumber {
+        font-size: 4rem;
+    }
+}

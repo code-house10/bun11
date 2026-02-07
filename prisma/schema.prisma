@@ -1,0 +1,126 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model HeroSlide {
+  id          String   @id @default(cuid())
+  title       String
+  subtitle    String
+  description String
+  image       String
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  icon        String
+  features    String   // JSON array stored as string
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model TeamMember {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  image     String
+  facebook  String?
+  twitter   String?
+  linkedin  String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  category    String
+  image       String
+  description String?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  text      String
+  image     String
+  rating    Int      @default(5)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BlogPost {
+  id        String   @id @default(cuid())
+  title     String
+  excerpt   String
+  content   String
+  image     String
+  author    String   @default("المدير")
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Stat {
+  id        String   @id @default(cuid())
+  value     Int
+  suffix    String
+  label     String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Settings {
+  id        String  @id @default("settings")
+  siteName  String  @default("نقل العفش")
+  phone     String  @default("+966 50 000 0000")
+  email     String  @default("info@naql-afsh.com")
+  address   String  @default("الرياض، المملكة العربية السعودية")
+  facebook  String?
+  twitter   String?
+  instagram String?
+  whatsapp  String?
+}
+
+model About {
+  id            String @id @default("about")
+  title         String @default("شريكك الموثوق في كل عملية نقل")
+  description   String @default("نحن أكثر من مجرد شركة نقل - نحن شريكك الموثوق في كل خطوة.")
+  image1        String @default("https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&q=80")
+  image2        String @default("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80")
+  experience    Int    @default(10)
+  feature1Title String @default("نقل الشحنات الكاملة")
+  feature1Desc  String @default("مثالي للشحنات الكبيرة التي تحتاج لنقل مخصص")
+  feature2Title String @default("التخزين المؤمن")
+  feature2Desc  String @default("مستودعات آمنة ومراقبة على مدار الساعة")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

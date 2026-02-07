@@ -1,0 +1,265 @@
+.whyChoose {
+    padding: 120px 0;
+    background: #fff;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Content Side */
+.content {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease;
+}
+
+.whyChoose.visible .content {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.sectionLabel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #f26922;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.labelLine {
+    width: 40px;
+    height: 3px;
+    background: #f26922;
+    border-radius: 3px;
+}
+
+.title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    color: #6c757d;
+    font-size: 1.0625rem;
+    line-height: 1.9;
+    margin-bottom: 2rem;
+}
+
+.progressBars {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.progressItem {
+    width: 100%;
+}
+
+.progressHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.progressBar {
+    height: 10px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, #f26922, #ff8c42);
+    border-radius: 10px;
+    transition: width 1.5s ease;
+}
+
+.ctaBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #f26922, #ff8c42);
+    color: #fff;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(242, 105, 34, 0.3);
+}
+
+.ctaBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(242, 105, 34, 0.4);
+}
+
+.ctaBtn svg {
+    transition: transform 0.3s;
+}
+
+.ctaBtn:hover svg {
+    transform: translateX(-5px);
+}
+
+/* Image Side */
+.imageWrapper {
+    position: relative;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease 0.2s;
+}
+
+.whyChoose.visible .imageWrapper {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.mainImage {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.mainImage img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.mainImage:hover img {
+    transform: scale(1.05);
+}
+
+.featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: -60px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.featureCard {
+    background: #fff;
+    padding: 25px 15px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.whyChoose.visible .featureCard {
+    opacity: 1;
+    transform: translateY(0);
+    animation: cardUp 0.6s ease forwards;
+}
+
+.featureCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.featureIcon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(242, 105, 34, 0.1), rgba(255, 140, 66, 0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: #f26922;
+}
+
+.featureCard h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.25rem;
+}
+
+.featureCard p {
+    font-size: 0.8125rem;
+    color: #6c757d;
+    margin: 0;
+}
+
+@keyframes cardUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .imageWrapper {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .whyChoose {
+        padding: 80px 0;
+    }
+
+    .mainImage img {
+        height: 300px;
+    }
+
+    .featuresGrid {
+        grid-template-columns: 1fr;
+        margin-top: -30px;
+        gap: 10px;
+    }
+
+    .featureCard {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        text-align: right;
+        gap: 1rem;
+    }
+
+    .featureIcon {
+        margin: 0;
+        width: 50px;
+        height: 50px;
+        flex-shrink: 0;
+    }
+}
